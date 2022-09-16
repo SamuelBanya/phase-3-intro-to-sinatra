@@ -1,0 +1,22 @@
+Related info / section on how to stop a specific port number with an active server if needed:
+
+# NOTE:
+# If you have to kill a port number for a server for whatever reason,
+# use this Stack Overflow post:
+# https://stackoverflow.com/questions/11583562/how-to-kill-a-process-running-on-particular-port-in-linux/32592965#32592965
+
+# Related commands:
+# To list any process listening to the port 8080:
+#+BEGIN_SRC bash    
+lsof -i:8080
+#+END_SRC
+
+# To kill any process listening to the port 8080:
+#+BEGIN_SRC bash
+kill $(lsof -t -i:8080)
+#+END_SRC
+
+# or more violently:
+#+BEGIN_SRC bash
+kill -9 $(lsof -t -i:8080)
+#+END_SRC
